@@ -9,7 +9,7 @@ import fnmatch
 from testing import (
     EPD,
     TSAN,
-    Stockfish as Engine,
+    MrCorpt as Engine,
     MiniTestFramework,
     OrderedClassMembers,
     Valgrind,
@@ -63,7 +63,7 @@ def postfix_check(output):
     return True
 
 
-def Stockfish(*args, **kwargs):
+def MrCorpt(*args, **kwargs):
     return Engine(get_prefix(), get_path(), *args, **kwargs)
 
 
@@ -82,65 +82,65 @@ class TestCLI(metaclass=OrderedClassMembers):
         self.stockfish.clear_output()
 
     def test_eval(self):
-        self.stockfish = Stockfish("eval".split(" "), True)
+        self.stockfish = MrCorpt("eval".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_go_nodes_1000(self):
-        self.stockfish = Stockfish("go nodes 1000".split(" "), True)
+        self.stockfish = MrCorpt("go nodes 1000".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_go_depth_10(self):
-        self.stockfish = Stockfish("go depth 10".split(" "), True)
+        self.stockfish = MrCorpt("go depth 10".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_go_perft_4(self):
-        self.stockfish = Stockfish("go perft 4".split(" "), True)
+        self.stockfish = MrCorpt("go perft 4".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_go_movetime_1000(self):
-        self.stockfish = Stockfish("go movetime 1000".split(" "), True)
+        self.stockfish = MrCorpt("go movetime 1000".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_go_wtime_8000_btime_8000_winc_500_binc_500(self):
-        self.stockfish = Stockfish(
+        self.stockfish = MrCorpt(
             "go wtime 8000 btime 8000 winc 500 binc 500".split(" "),
             True,
         )
         assert self.stockfish.process.returncode == 0
 
     def test_go_wtime_1000_btime_1000_winc_0_binc_0(self):
-        self.stockfish = Stockfish(
+        self.stockfish = MrCorpt(
             "go wtime 1000 btime 1000 winc 0 binc 0".split(" "),
             True,
         )
         assert self.stockfish.process.returncode == 0
 
     def test_go_wtime_1000_btime_1000_winc_0_binc_0_movestogo_5(self):
-        self.stockfish = Stockfish(
+        self.stockfish = MrCorpt(
             "go wtime 1000 btime 1000 winc 0 binc 0 movestogo 5".split(" "),
             True,
         )
         assert self.stockfish.process.returncode == 0
 
     def test_go_movetime_200(self):
-        self.stockfish = Stockfish("go movetime 200".split(" "), True)
+        self.stockfish = MrCorpt("go movetime 200".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_go_nodes_20000_searchmoves_e2e4_d2d4(self):
-        self.stockfish = Stockfish(
+        self.stockfish = MrCorpt(
             "go nodes 20000 searchmoves e2e4 d2d4".split(" "), True
         )
         assert self.stockfish.process.returncode == 0
 
     def test_bench_128_threads_8_default_depth(self):
-        self.stockfish = Stockfish(
+        self.stockfish = MrCorpt(
             f"bench 128 {get_threads()} 8 default depth".split(" "),
             True,
         )
         assert self.stockfish.process.returncode == 0
 
     def test_bench_128_threads_3_bench_tmp_epd_depth(self):
-        self.stockfish = Stockfish(
+        self.stockfish = MrCorpt(
             f"bench 128 {get_threads()} 3 {os.path.join(PATH, 'bench_tmp.epd')} depth".split(
                 " "
             ),
@@ -149,24 +149,24 @@ class TestCLI(metaclass=OrderedClassMembers):
         assert self.stockfish.process.returncode == 0
 
     def test_d(self):
-        self.stockfish = Stockfish("d".split(" "), True)
+        self.stockfish = MrCorpt("d".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_compiler(self):
-        self.stockfish = Stockfish("compiler".split(" "), True)
+        self.stockfish = MrCorpt("compiler".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_license(self):
-        self.stockfish = Stockfish("license".split(" "), True)
+        self.stockfish = MrCorpt("license".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_uci(self):
-        self.stockfish = Stockfish("uci".split(" "), True)
+        self.stockfish = MrCorpt("uci".split(" "), True)
         assert self.stockfish.process.returncode == 0
 
     def test_export_net_verify_nnue(self):
         current_path = os.path.abspath(os.getcwd())
-        self.stockfish = Stockfish(
+        self.stockfish = MrCorpt(
             f"export_net {os.path.join(current_path, 'verify.nnue')}".split(" "), True
         )
         assert self.stockfish.process.returncode == 0
@@ -174,7 +174,7 @@ class TestCLI(metaclass=OrderedClassMembers):
     # verify the generated net equals the base net
 
     def test_network_equals_base(self):
-        self.stockfish = Stockfish(
+        self.stockfish = MrCorpt(
             ["uci"],
             True,
         )
@@ -203,7 +203,7 @@ class TestCLI(metaclass=OrderedClassMembers):
 
 class TestInteractive(metaclass=OrderedClassMembers):
     def beforeAll(self):
-        self.stockfish = Stockfish()
+        self.stockfish = MrCorpt()
 
     def afterAll(self):
         self.stockfish.quit()
@@ -214,7 +214,7 @@ class TestInteractive(metaclass=OrderedClassMembers):
         self.stockfish.clear_output()
 
     def test_startup_output(self):
-        self.stockfish.starts_with("Stockfish")
+        self.stockfish.starts_with("MrCorpt")
 
     def test_uci_command(self):
         self.stockfish.send_command("uci")
@@ -389,7 +389,7 @@ class TestInteractive(metaclass=OrderedClassMembers):
 
     def test_verify_nnue_network(self):
         current_path = os.path.abspath(os.getcwd())
-        Stockfish(
+        MrCorpt(
             f"export_net {os.path.join(current_path, 'verify.nnue')}".split(" "), True
         )
 
@@ -415,7 +415,7 @@ class TestInteractive(metaclass=OrderedClassMembers):
 
 class TestSyzygy(metaclass=OrderedClassMembers):
     def beforeAll(self):
-        self.stockfish = Stockfish()
+        self.stockfish = MrCorpt()
 
     def afterAll(self):
         self.stockfish.quit()
@@ -426,7 +426,7 @@ class TestSyzygy(metaclass=OrderedClassMembers):
         self.stockfish.clear_output()
 
     def test_syzygy_setup(self):
-        self.stockfish.starts_with("Stockfish")
+        self.stockfish.starts_with("MrCorpt")
         self.stockfish.send_command("uci")
         self.stockfish.send_command(
             f"setoption name SyzygyPath value {os.path.join(PATH, 'syzygy')}"
@@ -477,7 +477,7 @@ class TestSyzygy(metaclass=OrderedClassMembers):
 
 class TestEnPassantSanitization(metaclass=OrderedClassMembers):
     def beforeAll(self):
-        self.stockfish = Stockfish()
+        self.stockfish = MrCorpt()
 
     def afterAll(self):
         self.stockfish.quit()
@@ -565,7 +565,7 @@ class TestEnPassantSanitization(metaclass=OrderedClassMembers):
         self.stockfish.expect("bestmove d8d7*")
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Run Stockfish with testing options")
+    parser = argparse.ArgumentParser(description="Run MrCorpt with testing options")
     parser.add_argument("--valgrind", action="store_true", help="Run valgrind testing")
     parser.add_argument(
         "--valgrind-thread", action="store_true", help="Run valgrind-thread testing"
@@ -582,7 +582,7 @@ def parse_args():
     parser.add_argument(
         "--none", action="store_true", help="Run without any testing options"
     )
-    parser.add_argument("stockfish_path", type=str, help="Path to Stockfish binary")
+    parser.add_argument("stockfish_path", type=str, help="Path to MrCorpt binary")
 
     return parser.parse_args()
 

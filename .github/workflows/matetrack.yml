@@ -12,11 +12,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          path: Stockfish
+          path: MrCorpt
           persist-credentials: false
 
       - name: build SF
-        working-directory: Stockfish/src
+        working-directory: MrCorpt/src
         run: make -j profile-build
 
       - name: Checkout matetrack repo
@@ -50,19 +50,19 @@ jobs:
       - name: Run matetrack th1
         working-directory: matetrack
         run: |
-          python matecheck.py --syzygyPath 3-4-5-wdl/:3-4-5-dtz/ --engine /home/runner/work/Stockfish/Stockfish/Stockfish/src/stockfish --epdFile mates2000.epd --nodes 100000 | tee matecheck1.out
+          python matecheck.py --syzygyPath 3-4-5-wdl/:3-4-5-dtz/ --engine /home/runner/work/MrCorpt/MrCorpt/MrCorpt/src/stockfish --epdFile mates2000.epd --nodes 100000 | tee matecheck1.out
           ! grep "issues were detected" matecheck1.out > /dev/null
 
       - name: Run matetrack th4
         working-directory: matetrack
         run: |
-          python matecheck.py --syzygyPath 3-4-5-wdl/:3-4-5-dtz/ --engine /home/runner/work/Stockfish/Stockfish/Stockfish/src/stockfish --epdFile mates2000.epd --nodes 100000 --threads 4 | tee matecheck4.out
+          python matecheck.py --syzygyPath 3-4-5-wdl/:3-4-5-dtz/ --engine /home/runner/work/MrCorpt/MrCorpt/MrCorpt/src/stockfish --epdFile mates2000.epd --nodes 100000 --threads 4 | tee matecheck4.out
           ! grep "issues were detected" matecheck4.out > /dev/null
 
       - name: Run matetrack th4 gameplay
         working-directory: matetrack
         run: |
-          python matecheck.py --engine /home/runner/work/Stockfish/Stockfish/Stockfish/src/stockfish --epdFile mates2000.epd --time 3 --timeinc 0.01 --threads 4 | tee matecheck4g.out
+          python matecheck.py --engine /home/runner/work/MrCorpt/MrCorpt/MrCorpt/src/stockfish --epdFile mates2000.epd --time 3 --timeinc 0.01 --threads 4 | tee matecheck4g.out
           ! grep "issues were detected" matecheck4g.out > /dev/null
 
       - name: Run matetrack th4 go-mate
@@ -71,7 +71,7 @@ jobs:
           head -n 21 matetrack.epd > gomates.epd
           head -n 44 matedtrack.epd >> gomates.epd
           head -n 18 mates2000.epd >> gomates.epd
-          python matecheck.py --engine /home/runner/work/Stockfish/Stockfish/Stockfish/src/stockfish --epdFile gomates.epd --mate 0 --threads 4 | tee matecheck4gm.out
+          python matecheck.py --engine /home/runner/work/MrCorpt/MrCorpt/MrCorpt/src/stockfish --epdFile gomates.epd --mate 0 --threads 4 | tee matecheck4gm.out
           ! grep "issues were detected" matecheck4gm.out > /dev/null
           total=$(grep "Total FENs:" matecheck4gm.out | awk '{print $3}')
           bmates=$(grep "Best mates:" matecheck4gm.out | awk '{print $3}')
@@ -84,14 +84,14 @@ jobs:
         working-directory: matetrack
         run: |
           grep 5men cursed.epd > cursed5.epd
-          python matecheck.py --syzygyPath 3-4-5-wdl/:3-4-5-dtz/ --engine /home/runner/work/Stockfish/Stockfish/Stockfish/src/stockfish --epdFile cursed5.epd --nodes 100000 --syzygy50MoveRule false | tee matecheckcursed1.out
+          python matecheck.py --syzygyPath 3-4-5-wdl/:3-4-5-dtz/ --engine /home/runner/work/MrCorpt/MrCorpt/MrCorpt/src/stockfish --epdFile cursed5.epd --nodes 100000 --syzygy50MoveRule false | tee matecheckcursed1.out
           ! grep "issues were detected" matecheckcursed1.out > /dev/null
 
       - name: Run matetrack th4 with --syzygy50MoveRule false
         working-directory: matetrack
         run: |
           grep 5men cursed.epd > cursed5.epd
-          python matecheck.py --syzygyPath 3-4-5-wdl/:3-4-5-dtz/ --engine /home/runner/work/Stockfish/Stockfish/Stockfish/src/stockfish --epdFile cursed5.epd --nodes 100000 --threads 4 --syzygy50MoveRule false | tee matecheckcursed4.out
+          python matecheck.py --syzygyPath 3-4-5-wdl/:3-4-5-dtz/ --engine /home/runner/work/MrCorpt/MrCorpt/MrCorpt/src/stockfish --epdFile cursed5.epd --nodes 100000 --threads 4 --syzygy50MoveRule false | tee matecheckcursed4.out
           ! grep "issues were detected" matecheckcursed4.out > /dev/null
 
       - name: Verify mate and TB win count for matecheckcursed[14].out
