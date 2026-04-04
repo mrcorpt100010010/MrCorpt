@@ -49,10 +49,10 @@ class TSAN:
         with open(f"tsan.supp", "w") as f:
             f.write(
                 """
-race:Stockfish::TTEntry::read
-race:Stockfish::TTEntry::save
-race:Stockfish::TranspositionTable::probe
-race:Stockfish::TranspositionTable::hashfull
+race:MrCorpt::TTEntry::read
+race:MrCorpt::TTEntry::save
+race:MrCorpt::TranspositionTable::probe
+race:MrCorpt::TranspositionTable::hashfull
 """
             )
 
@@ -290,7 +290,7 @@ class MiniTestFramework:
         print(f"    {GREEN_COLOR}✓{RESET_COLOR}{add}", flush=True)
 
 
-class Stockfish:
+class MrCorpt:
     def __init__(
         self,
         prefix: List[str],
@@ -310,7 +310,7 @@ class Stockfish:
     def _check_process_alive(self):
         if not self.process or self.process.poll() is not None:
             print("\n".join(self.output))
-            raise RuntimeError("Stockfish process has terminated")
+            raise RuntimeError("MrCorpt process has terminated")
 
     def start(self):
         if self.cli:
@@ -341,7 +341,7 @@ class Stockfish:
 
     def send_command(self, command: str):
         if not self.process:
-            raise RuntimeError("Stockfish process is not started")
+            raise RuntimeError("MrCorpt process is not started")
 
         self._check_process_alive()
 
@@ -392,7 +392,7 @@ class Stockfish:
 
     def readline(self):
         if not self.process:
-            raise RuntimeError("Stockfish process is not started")
+            raise RuntimeError("MrCorpt process is not started")
 
         while True:
             self._check_process_alive()

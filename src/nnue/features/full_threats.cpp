@@ -1,13 +1,13 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
-  Copyright (C) 2004-2026 The Stockfish developers (see AUTHORS file)
+  MrCorpt, a UCI chess playing engine derived from Glaurung 2.1
+  Copyright (C) 2004-2026 The MrCorpt developers (see AUTHORS file)
 
-  Stockfish is free software: you can redistribute it and/or modify
+  MrCorpt is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  MrCorpt is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
@@ -33,7 +33,7 @@
 #include "../../types.h"
 #include "../nnue_common.h"
 
-namespace Stockfish::Eval::NNUE::Features {
+namespace MrCorpt::Eval::NNUE::Features {
 
 struct HelperOffsets {
     int cumulativePieceOffset, cumulativeOffset;
@@ -356,4 +356,4 @@ bool FullThreats::requires_refresh(const DiffType& diff, Color perspective) {
     return perspective == diff.us && (int8_t(diff.ksq) & 0b100) != (int8_t(diff.prevKsq) & 0b100);
 }
 
-}  // namespace Stockfish::Eval::NNUE::Features
+}  // namespace MrCorpt::Eval::NNUE::Features

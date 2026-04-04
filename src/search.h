@@ -1,13 +1,13 @@
 /*
-  Stockfish, a UCI chess playing engine derived from Glaurung 2.1
-  Copyright (C) 2004-2026 The Stockfish developers (see AUTHORS file)
+  MrCorpt, a UCI chess playing engine derived from Glaurung 2.1
+  Copyright (C) 2004-2026 The MrCorpt developers (see AUTHORS file)
 
-  Stockfish is free software: you can redistribute it and/or modify
+  MrCorpt is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  Stockfish is distributed in the hope that it will be useful,
+  MrCorpt is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
@@ -43,7 +43,7 @@
 #include "timeman.h"
 #include "types.h"
 
-namespace Stockfish {
+namespace MrCorpt {
 
 // Different node types, used as a template parameter
 enum NodeType {
@@ -190,9 +190,9 @@ struct InfoIteration {
 // Skill structure is used to implement strength limit. If we have a UCI_Elo,
 // we convert it to an appropriate skill level, anchored to the Stash engine.
 // This method is based on a fit of the Elo results for games played between
-// Stockfish at various skill levels and various versions of the Stash engine.
+// MrCorpt at various skill levels and various versions of the Stash engine.
 // Skill 0 .. 19 now covers CCRL Blitz Elo from 1320 to 3190, approximately
-// Reference: https://github.com/vondele/Stockfish/commit/a08b8d4e9711c2
+// Reference: https://github.com/vondele/MrCorpt/commit/a08b8d4e9711c2
 struct Skill {
     // Lowest and highest Elo ratings used in the skill level calculation
     constexpr static int LowestElo  = 1320;
@@ -242,7 +242,7 @@ class SearchManager: public ISearchManager {
             const TranspositionTable& tt,
             Depth                     depth);
 
-    Stockfish::TimeManagement tm;
+    MrCorpt::TimeManagement tm;
     double                    originalTimeAdjust;
     int                       callsCnt;
     std::atomic_bool          ponder;
@@ -365,7 +365,7 @@ class Worker {
     Eval::NNUE::AccumulatorStack  accumulatorStack;
     Eval::NNUE::AccumulatorCaches refreshTable;
 
-    friend class Stockfish::ThreadPool;
+    friend class MrCorpt::ThreadPool;
     friend class SearchManager;
 };
 
@@ -377,6 +377,6 @@ struct ConthistBonus {
 
 }  // namespace Search
 
-}  // namespace Stockfish
+}  // namespace MrCorpt
 
 #endif  // #ifndef SEARCH_H_INCLUDED

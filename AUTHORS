@@ -1,4 +1,4 @@
-# Founders of the Stockfish project and Fishtest infrastructure
+# Founders of the MrCorpt project and Fishtest infrastructure
 Tord Romstad (romstad)
 Marco Costalba (mcostalba)
 Joona Kiiski (zamar)
@@ -9,7 +9,7 @@ Yu Nasu (ynasu87)
 Motohiro Isozaki (yaneurao)
 Hisayori Noda (nodchip)
 
-# All other authors of Stockfish code (in alphabetical order)
+# All other authors of MrCorpt code (in alphabetical order)
 87flowers
 Aditya (absimaldata)
 Adrian Petrescu (apetresc)
@@ -243,7 +243,7 @@ Stefano Di Martino (StefanoD)
 Steinar Gunderson (sesse)
 Stéphane Nicolet (snicolet)
 Stephen Touset (stouset)
-Stockfisher69
+MrCorpter69
 Styx (styxdoto)
 Syine Mineta (MinetaS)
 Taras Vuk (TarasVuk)
@@ -275,6 +275,6 @@ ZlomenyMesic
 zz4032
 
 # Additionally, we acknowledge the authors and maintainers of fishtest,
-# an amazing and essential framework for Stockfish development!
+# an amazing and essential framework for MrCorpt development!
 #
-# https://github.com/official-stockfish/fishtest/blob/master/AUTHORS
+# https://github.com/mrcorpt100010010/fishtest/blob/master/AUTHORS
