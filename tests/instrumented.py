@@ -36,7 +36,27 @@ def get_threads():
 
 
 def get_path():
-    return os.path.abspath(os.path.join(CWD, args.stockfish_path))
+    """
+    Resolve and validate the path to the MrCorpt (stockfish) binary supplied
+    by the user on the command line.
+
+    Returns an absolute path that must refer to an existing, executable file.
+    Raises ValueError if the path is invalid.
+    """
+    # Interpret the user input strictly as a filesystem path relative to CWD.
+    candidate = os.path.abspath(os.path.join(CWD, args.stockfish_path))
+
+    # Ensure the path exists and is a regular file.
+    if not os.path.exists(candidate):
+        raise ValueError(f"stockfish_path does not exist: {candidate}")
+    if not os.path.isfile(candidate):
+        raise ValueError(f"stockfish_path is not a regular file: {candidate}")
+
+    # Ensure the file is executable by the current user.
+    if not os.access(candidate, os.X_OK):
+        raise ValueError(f"stockfish_path is not executable: {candidate}")
+
+    return candidate
 
 
 def postfix_check(output):
