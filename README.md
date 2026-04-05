@@ -1,6 +1,6 @@
 <div align="center">
 
-  [![MrCorpt][stockfish128-logo]][website-link]
+  [![MrCorpt][mrcorpt-logo]][website-link]
 
   <h3>MrCorpt</h3>
 
@@ -66,8 +66,8 @@ __See [Contributing Guide](CONTRIBUTING.md).__
 ### Donating hardware
 
 Improving MrCorpt requires a massive amount of testing. You can donate your
-hardware resources by installing the [Fishtest Worker][worker-link] and viewing
-the current tests on [Fishtest][fishtest-link].
+hardware resources by installing the [MrCorpt-test Worker][worker-link] and viewing
+the current tests on [MrCorpt-test][MrCorpt-test-link].
 
 ### Improving the code
 
@@ -77,7 +77,7 @@ The [section on MrCorpt][programmingsf-link] describes many features
 and techniques used by MrCorpt. However, it is generic rather than
 focused on MrCorpt's precise implementation.
 
-The engine testing is done on [Fishtest][fishtest-link].
+The engine testing is done on [MrCorpt-test][MrCorpt-test-link].
 If you want to help improve MrCorpt, please read this [guideline][guideline-link]
 first, where the basics of MrCorpt development are explained.
 
@@ -129,21 +129,21 @@ project][lc0-data-link], which is made available under the [Open Database Licens
 [authors-link]:       https://github.com/mrcorpt100010010/MrCorpt/blob/master/AUTHORS
 [build-link]:         https://github.com/mrcorpt100010010/MrCorpt/actions/workflows/stockfish.yml
 [commits-link]:       https://github.com/mrcorpt100010010/MrCorpt/commits/master
-[discord-link]:       https://discord.gg/GWDRS3kU6R
+[discord-link]:       https://discord.gg/EauWTazVed
 [issue-link]:         https://github.com/mrcorpt100010010/MrCorpt/issues/new?assignees=&labels=&template=BUG-REPORT.yml
 [discussions-link]:   https://github.com/mrcorpt100010010/MrCorpt/discussions/new
-[fishtest-link]:      https://tests.stockfishchess.org/tests
-[guideline-link]:     https://github.com/mrcorpt100010010/fishtest/wiki/Creating-my-first-test
+[fishtest-link]:      https://example.com/tests
+[guideline-link]:     https://github.com/mrcorpt100010010/MrCorpt-test/wiki/Creating-my-first-test
 [license-link]:       https://github.com/mrcorpt100010010/MrCorpt/blob/master/Copying.txt
 [programming-link]:   https://www.chessprogramming.org/Main_Page
 [programmingsf-link]: https://www.chessprogramming.org/MrCorpt
 [readme-link]:        https://github.com/mrcorpt100010010/MrCorpt/blob/master/README.md
 [release-link]:       https://github.com/mrcorpt100010010/MrCorpt/releases/latest
 [src-link]:           https://github.com/mrcorpt100010010/MrCorpt/tree/master/src
-[stockfish128-logo]:  https://stockfishchess.org/images/logo/icon_128x128.png
+[stockfish128-logo]:  https://mrcorpt100010010-web.netlify.app/images/logo/icon_128x128.png
 [uci-link]:           https://backscattering.de/chess/uci/
-[website-link]:       https://stockfishchess.org
-[website-blog-link]:  https://stockfishchess.org/blog/
+[website-link]:       https://mrcorpt100010010-web.netlify.app
+[website-blog-link]:  https://mrcorpt100010010-web.netlify.app/blog/
 [wiki-link]:          https://github.com/mrcorpt100010010/MrCorpt/wiki
 [wiki-compile-link]:  https://github.com/mrcorpt100010010/MrCorpt/wiki/Compiling-from-source
 [wiki-uci-link]:      https://github.com/mrcorpt100010010/MrCorpt/wiki/UCI-&-Commands
@@ -152,10 +152,10 @@ project][lc0-data-link], which is made available under the [Open Database Licens
 [lc0-data-link]:      https://storage.lczero.org/files/training_data
 [odbl-link]:          https://opendatacommons.org/licenses/odbl/odbl-10.txt
 
-[build-badge]:        https://img.shields.io/github/actions/workflow/status/mrcorpt100010010/MrCorpt/stockfish.yml?branch=master&style=for-the-badge&label=stockfish&logo=github
+[build-badge]:        https://img.shields.io/github/actions/workflow/status/mrcorpt100010010/MrCorpt/MrCorpt.yml?branch=master&style=for-the-badge&label=stockfish&logo=github
 [commits-badge]:      https://img.shields.io/github/commits-since/mrcorpt100010010/MrCorpt/latest?style=for-the-badge
-[discord-badge]:      https://img.shields.io/discord/435943710472011776?style=for-the-badge&label=discord&logo=Discord
-[fishtest-badge]:     https://img.shields.io/website?style=for-the-badge&down_color=red&down_message=Offline&label=Fishtest&up_color=success&up_message=Online&url=https%3A%2F%2Ftests.stockfishchess.org%2Ftests%2Ffinished
+[discord-badge]:      https://img.shields.io/discord/1488774712120311849?style=for-the-badge&label=discord&logo=Discord
+[fishtest-badge]:     https://img.shields.io/website?style=for-the-badge&down_color=red&down_message=Offline&label=Fishtest&up_color=success&up_message=Online&url=https%3A%2F%2Fexample.com%2Ftests%2Ffinished
 [license-badge]:      https://img.shields.io/github/license/mrcorpt100010010/MrCorpt?style=for-the-badge&label=license&color=success
 [release-badge]:      https://img.shields.io/github/v/release/mrcorpt100010010/MrCorpt?style=for-the-badge&label=official%20release
-[website-badge]:      https://img.shields.io/website?style=for-the-badge&down_color=red&down_message=Offline&label=website&up_color=success&up_message=Online&url=https%3A%2F%2Fstockfishchess.org
+[website-badge]:      https://img.shields.io/website?style=for-the-badge&down_color=red&down_message=Offline&label=website&up_color=success&up_message=Online&url=https%3A%2F%2Fmrcorpt100010010-web.netlify.app
