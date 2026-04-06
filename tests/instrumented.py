@@ -46,6 +46,26 @@ def get_path():
     # Interpret the user input strictly as a filesystem path relative to CWD.
     candidate = os.path.abspath(os.path.join(CWD, args.stockfish_path))
 
+    # Resolve symlinks to prevent escaping the allowed directory via symlinks.
+    candidate = os.path.realpath(candidate)
+
+    # Constrain the binary to live under the current working directory (CWD)
+    # to avoid launching arbitrary executables elsewhere on the system.
+    allowed_base = os.path.realpath(CWD)
+    common = os.path.commonpath([allowed_base, candidate])
+    if common != allowed_base:
+        raise ValueError(
+            f"stockfish_path must reside under {allowed_base}, got: {candidate}"
+        )
+
+    # Optionally, enforce an expected engine name to avoid arbitrary binaries.
+    allowed_names = {"stockfish", "stockfish.exe", "mr_corpt", "mr_corpt.exe"}
+    base_name = os.path.basename(candidate)
+    if base_name not in allowed_names:
+        raise ValueError(
+            f"stockfish_path must be one of {sorted(allowed_names)}, got: {base_name}"
+        )
+
     # Ensure the path exists and is a regular file.
     if not os.path.exists(candidate):
         raise ValueError(f"stockfish_path does not exist: {candidate}")
