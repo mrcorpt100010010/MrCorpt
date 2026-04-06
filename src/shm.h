@@ -535,13 +535,13 @@ struct SystemWideSharedConstant {
         std::size_t executable_hash = hash_string(getExecutablePathHash());
 
         char buf[1024];
-        std::snprintf(buf, sizeof(buf), "Local\\sf_%zu$%zu$%zu", content_hash, executable_hash,
+        std::snprintf(buf, sizeof(buf), "Local\\mr_%zu$%zu$%zu", content_hash, executable_hash,
                       discriminator);
         std::string shm_name = buf;
 
 #if defined(__linux__) && !defined(__ANDROID__)
         // POSIX shared memory names must start with a slash
-        shm_name = "/sf_" + createHashString(shm_name);
+        shm_name = "/mr_" + createHashString(shm_name);
 
         // hash name and make sure it is not longer than SF_MAX_SEM_NAME_LEN
         if (shm_name.size() > SF_MAX_SEM_NAME_LEN)
