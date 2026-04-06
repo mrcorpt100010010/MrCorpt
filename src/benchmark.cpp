@@ -99,7 +99,6 @@ const std::vector<std::string> Defaults = {
 
 // clang-format off
 // human-randomly picked 5 games with <60 moves from
-// https://tests.stockfishchess.org/tests/view/665c71f9fd45fb0f907c21e0
 // only moves for one side
 const std::vector<std::vector<std::string>> BenchmarkPositions = {
     {
