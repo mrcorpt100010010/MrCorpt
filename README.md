@@ -24,7 +24,7 @@
   [![Commits][commits-badge]][commits-link]
   <br>
   [![Website][website-badge]][website-link]
-  [![Fishtest][fishtest-badge]][fishtest-link]
+  [![MrCorpt-test][MrCorpt-test-badge]][MrCorpt-test-link]
   [![Discord][discord-badge]][discord-link]
 
 </div>
@@ -127,12 +127,12 @@ project][lc0-data-link], which is made available under the [Open Database Licens
 
 
 [authors-link]:       https://github.com/mrcorpt100010010/MrCorpt/blob/master/AUTHORS
-[build-link]:         https://github.com/mrcorpt100010010/MrCorpt/actions/workflows/stockfish.yml
+[build-link]:         https://github.com/mrcorpt100010010/MrCorpt/actions/workflows/MrCorpt.yml
 [commits-link]:       https://github.com/mrcorpt100010010/MrCorpt/commits/master
 [discord-link]:       https://discord.gg/EauWTazVed
 [issue-link]:         https://github.com/mrcorpt100010010/MrCorpt/issues/new?assignees=&labels=&template=BUG-REPORT.yml
 [discussions-link]:   https://github.com/mrcorpt100010010/MrCorpt/discussions/new
-[fishtest-link]:      https://example.com/tests
+[MrCorpt-test-link]:      https://example.com/tests
 [guideline-link]:     https://github.com/mrcorpt100010010/MrCorpt-test/wiki/Creating-my-first-test
 [license-link]:       https://github.com/mrcorpt100010010/MrCorpt/blob/master/Copying.txt
 [programming-link]:   https://www.chessprogramming.org/Main_Page
@@ -140,7 +140,7 @@ project][lc0-data-link], which is made available under the [Open Database Licens
 [readme-link]:        https://github.com/mrcorpt100010010/MrCorpt/blob/master/README.md
 [release-link]:       https://github.com/mrcorpt100010010/MrCorpt/releases/latest
 [src-link]:           https://github.com/mrcorpt100010010/MrCorpt/tree/master/src
-[stockfish128-logo]:  https://mrcorpt100010010-web.netlify.app/images/logo/icon_128x128.png
+[MrCorpt128-logo]:  https://mrcorpt100010010-web.netlify.app/images/logo/icon_128x128.png
 [uci-link]:           https://backscattering.de/chess/uci/
 [website-link]:       https://mrcorpt100010010-web.netlify.app
 [website-blog-link]:  https://mrcorpt100010010-web.netlify.app/blog/
@@ -148,14 +148,14 @@ project][lc0-data-link], which is made available under the [Open Database Licens
 [wiki-compile-link]:  https://github.com/mrcorpt100010010/MrCorpt/wiki/Compiling-from-source
 [wiki-uci-link]:      https://github.com/mrcorpt100010010/MrCorpt/wiki/UCI-&-Commands
 [wiki-usage-link]:    https://github.com/mrcorpt100010010/MrCorpt/wiki/Download-and-usage
-[worker-link]:        https://github.com/mrcorpt100010010/fishtest/wiki/Running-the-worker
+[worker-link]:        https://github.com/mrcorpt100010010/MrCorpt-test/wiki/Running-the-worker
 [lc0-data-link]:      https://storage.lczero.org/files/training_data
 [odbl-link]:          https://opendatacommons.org/licenses/odbl/odbl-10.txt
 
-[build-badge]:        https://img.shields.io/github/actions/workflow/status/mrcorpt100010010/MrCorpt/MrCorpt.yml?branch=master&style=for-the-badge&label=stockfish&logo=github
+[build-badge]:        https://img.shields.io/github/actions/workflow/status/mrcorpt100010010/MrCorpt/MrCorpt.yml?branch=master&style=for-the-badge&label=mrcorpt&logo=github
 [commits-badge]:      https://img.shields.io/github/commits-since/mrcorpt100010010/MrCorpt/latest?style=for-the-badge
 [discord-badge]:      https://img.shields.io/discord/1488774712120311849?style=for-the-badge&label=discord&logo=Discord
-[fishtest-badge]:     https://img.shields.io/website?style=for-the-badge&down_color=red&down_message=Offline&label=Fishtest&up_color=success&up_message=Online&url=https%3A%2F%2Fexample.com%2Ftests%2Ffinished
+[MrCorpt-test-badge]:     https://img.shields.io/website?style=for-the-badge&down_color=red&down_message=Offline&label=MrCorpt-test&up_color=success&up_message=Online&url=https%3A%2F%2Fexample.com%2Ftests%2Ffinished
 [license-badge]:      https://img.shields.io/github/license/mrcorpt100010010/MrCorpt?style=for-the-badge&label=license&color=success
 [release-badge]:      https://img.shields.io/github/v/release/mrcorpt100010010/MrCorpt?style=for-the-badge&label=official%20release
 [website-badge]:      https://img.shields.io/website?style=for-the-badge&down_color=red&down_message=Offline&label=website&up_color=success&up_message=Online&url=https%3A%2F%2Fmrcorpt100010010-web.netlify.app
