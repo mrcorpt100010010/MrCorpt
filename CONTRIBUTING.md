@@ -6,7 +6,7 @@ making contributions to MrCorpt.
 
 ## Table of Contents
 
-- [Building MrCorpt](#building-stockfish)
+- [Building MrCorpt](#building-MrCorpt)
 - [Making Contributions](#making-contributions)
   - [Reporting Issues](#reporting-issues)
   - [Submitting Pull Requests](#submitting-pull-requests)
@@ -38,13 +38,13 @@ further discussion._
 
 ### Submitting Pull Requests
 
-- Functional changes need to be tested on fishtest. See
+- Functional changes need to be tested on MrCorpt-test. See
   [Creating my First Test][creating-my-first-test] for more details.
   The accompanying pull request should include a link to the test results and
   the new bench.
 
 - Non-functional changes (e.g. refactoring, code style, documentation) do not
-  need to be tested on fishtest, unless they might impact performance.
+  need to be tested on MrCorpttest, unless they might impact performance.
 
 - Provide a clear and concise description of the changes in the pull request
   description.
@@ -89,7 +89,7 @@ Thank you for contributing to MrCorpt and helping us make it even better!
 [copying-link]:           https://github.com/mrcorpt100010010/MrCorpt/blob/master/Copying.txt
 [discord-link]:           https://discord.gg/GWDRS3kU6R
 [discussions-link]:       https://github.com/mrcorpt100010010/MrCorpt/discussions/new
-[creating-my-first-test]: https://github.com/mrcorpt100010010/fishtest/wiki/Creating-my-first-test#create-your-test
+[creating-my-first-test]: https://github.com/mrcorpt100010010/MrCorpt-test/wiki/Creating-my-first-test#create-your-test
 [issue-tracker-link]:     https://github.com/mrcorpt100010010/MrCorpt/issues
 [ubuntu-compiling-link]:  https://github.com/mrcorpt100010010/MrCorpt/wiki/Developers#user-content-installing-a-compiler-1
 [windows-compiling-link]: https://github.com/mrcorpt100010010/MrCorpt/wiki/Developers#user-content-installing-a-compiler
