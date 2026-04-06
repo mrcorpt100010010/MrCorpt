@@ -30,9 +30,9 @@ class Position;
 namespace Eval {
 
 // The default net name MUST follow the format nn-[SHA256 first 12 digits].nnue
-// for the build process (profile-build and fishtest) to work. Do not change the
+// for the build process (profile-build and MrCorpt-test) to work. Do not change the
 // name of the macro or the location where this macro is defined, as it is used
-// in the Makefile/Fishtest.
+// in the Makefile/MrCorpt-test.
 #define EvalFileDefaultNameBig "nn-7bf13f9655c8.nnue"
 #define EvalFileDefaultNameSmall "nn-47fc8b7fff06.nnue"
 
