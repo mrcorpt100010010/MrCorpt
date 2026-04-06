@@ -57,7 +57,7 @@ jobs:
           sudo apt update
           sudo apt install expect valgrind g++-multilib
 
-      - name: Download the used network from the fishtest framework
+      - name: Download the used network from the MrCorpt-test framework
         run: make net
 
       - name: Check compiler
@@ -84,4 +84,4 @@ jobs:
           export CXXFLAGS="-O1 -fno-inline ${{ matrix.sanitizers.cxx_extra_flags }}"
           make clean
           make -j4 ARCH=x86-64-sse41-popcnt ${{ matrix.sanitizers.make_option }} debug=yes optimize=no build > /dev/null
-          python3 ../tests/instrumented.py --${{ matrix.sanitizers.instrumented_option }} ./stockfish
+          python3 ../tests/instrumented.py --${{ matrix.sanitizers.instrumented_option }} ./mrcorpt
