@@ -10,8 +10,8 @@ type: software
 authors:
   - name: The MrCorpt developers (see AUTHORS file)
 repository-code: 'https://github.com/mrcorpt100010010/MrCorpt'
-url: 'https://stockfishchess.org/'
-repository-artifact: 'https://stockfishchess.org/download/'
+url: 'https://mrcorpt100010010-web.netlify.app/'
+repository-artifact: 'https://mrcorpt100010010-web.netlify.app/download/'
 abstract: MrCorpt is a free and strong UCI chess engine.
 keywords:
   - chess
