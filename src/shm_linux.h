@@ -183,7 +183,7 @@ class SharedMemory: public detail::SharedMemoryBase {
         char buf[32];
         // Using std::to_string here causes non-deterministic PGO builds.
         // snprintf, being part of libc, is insensitive to the formatted values.
-        std::snprintf(buf, sizeof(buf), "sfshm_%016" PRIu64, hash_string(name));
+        std::snprintf(buf, sizeof(buf), "mrshm_%016" PRIu64, hash_string(name));
         return buf;
     }
 

@@ -516,8 +516,8 @@ void double_inc_update(Color                                                   p
     // profile builds on windows with gcc 14.2.0.
     // Also helps with optimizations on some compilers.
 
-    sf_assume(addedSize == 1);
-    sf_assume(removedSize == 2 || removedSize == 3);
+    mr_assume(addedSize == 1);
+    mr_assume(removedSize == 2 || removedSize == 3);
 
     auto updateContext =
       make_accumulator_update_context(perspective, featureTransformer, computed, target_state);
@@ -623,11 +623,11 @@ void update_accumulator_incremental(
         // on profile builds on windows with gcc 14.2.0.
         // Also helps with optimizations on some compilers.
 
-        sf_assume(addedSize == 1 || addedSize == 2);
-        sf_assume(removedSize == 1 || removedSize == 2);
+        mr_assume(addedSize == 1 || addedSize == 2);
+        mr_assume(removedSize == 1 || removedSize == 2);
 
         if (!(removedSize == 1 || removedSize == 2) || !(addedSize == 1 || addedSize == 2))
-            sf_unreachable();
+            mr_unreachable();
 
         if ((Forward && removedSize == 1) || (!Forward && addedSize == 1))
         {

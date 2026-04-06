@@ -490,21 +490,21 @@ void move_to_front(std::vector<T>& vec, Predicate pred) {
 }
 
 #if defined(__GNUC__)
-    #define sf_always_inline __attribute__((always_inline))
+    #define mr_always_inline __attribute__((always_inline))
 #elif defined(_MSC_VER)
-    #define sf_always_inline __forceinline
+    #define mr_always_inline __forceinline
 #else
     // do nothing for other compilers
-    #define sf_always_inline
+    #define mr_always_inline
 #endif
 
 #if defined(__clang__)
-    #define sf_assume(cond) __builtin_assume(cond)
+    #define mr_assume(cond) __builtin_assume(cond)
 #elif defined(__GNUC__)
     #if __GNUC__ >= 13
-        #define sf_assume(cond) __attribute__((assume(cond)))
+        #define mr_assume(cond) __attribute__((assume(cond)))
     #else
-        #define sf_assume(cond) \
+        #define mr_assume(cond) \
             do \
             { \
                 if (!(cond)) \
@@ -512,18 +512,18 @@ void move_to_front(std::vector<T>& vec, Predicate pred) {
             } while (0)
     #endif
 #elif defined(_MSC_VER)
-    #define sf_assume(cond) __assume(cond)
+    #define mr_assume(cond) __assume(cond)
 #else
     // do nothing for other compilers
-    #define sf_assume(cond)
+    #define mr_assume(cond)
 #endif
 
 #ifdef __GNUC__
-    #define sf_unreachable() __builtin_unreachable()
+    #define mr_unreachable() __builtin_unreachable()
 #elif defined(_MSC_VER)
-    #define sf_unreachable() __assume(0)
+    #define mr_unreachable() __assume(0)
 #else
-    #define sf_unreachable()
+    #define mr_unreachable()
 #endif
 
 }  // namespace MrCorpt
