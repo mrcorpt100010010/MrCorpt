@@ -51,7 +51,7 @@ struct SetRange {
 #define SetDefaultRange SetRange(default_range)
 
 
-// Tune class implements the 'magic' code that makes the setup of a fishtest tuning
+// Tune class implements the 'magic' code that makes the setup of a MrCorpt-test tuning
 // session as easy as it can be. Mainly you have just to remove const qualifiers
 // from the variables you want to tune and flag them for tuning, so if you have:
 //
