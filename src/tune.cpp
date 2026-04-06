@@ -58,7 +58,7 @@ void Tune::make_option(OptionsMap* opts, const string& n, int v, const SetRange&
     opts->add(n, Option(v, r(v).first, r(v).second, on_tune));
     LastOption = &((*opts)[n]);
 
-    // Print formatted parameters, ready to be copy-pasted in Fishtest
+    // Print formatted parameters, ready to be copy-pasted in MrCorpt-test
     std::cout << n << ","                                  //
               << v << ","                                  //
               << r(v).first << ","                         //
@@ -111,7 +111,7 @@ void Tune::Entry<Tune::PostUpdate>::read_option() {
 
 // Init options with tuning session results instead of default values. Useful to
 // get correct bench signature after a tuning session or to test tuned values.
-// Just copy fishtest tuning results in a result.txt file and extract the
+// Just copy MrCorpt-test tuning results in a result.txt file and extract the
 // values with:
 //
 // cat results.txt | sed 's/^param: \([^,]*\), best: \([^,]*\).*/  TuneResults["\1"] = int(round(\2));/'
