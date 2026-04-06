@@ -49,7 +49,7 @@ fetch_network() {
   fi
 
   for url in \
-    "https://tests.stockfishchess.org/api/nn/$_filename" \
+    "https://example.com/api/nn/$_filename" \
     "https://github.com/mrcorpt100010010/networks/raw/master/$_filename"; do
     echo "Downloading from $url ..."
     if $wget_or_curl "$url" >"$_filename"; then
