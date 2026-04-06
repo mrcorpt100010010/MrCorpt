@@ -523,7 +523,7 @@ WinRateParams win_rate_params(const Position& pos) {
 }
 
 // The win rate model is 1 / (1 + exp((a - eval) / b)), where a = p_a(material) and b = p_b(material).
-// It fits the LTC fishtest statistics rather accurately.
+// It fits the LTC MrCorpt-test statistics rather accurately.
 int win_rate_model(Value v, const Position& pos) {
 
     auto [a, b] = win_rate_params(pos);
