@@ -22,7 +22,7 @@ jobs:
       - name: Checkout fastchess repo
         uses: actions/checkout@v4
         with:
-          repository: MrCorpt/fastchess
+          repository: mrcorpt100010010/fastchess
           path: fastchess
           ref: 894616028492ae6114835195f14a899f6fa237d3
           persist-credentials: false
