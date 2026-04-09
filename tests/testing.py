@@ -320,8 +320,36 @@ class MrCorpt:
                 f"Executable name must be one of {sorted(ALLOWED_ENGINE_NAMES)}, got: {base_name}"
             )
 
+    def _validate_prefix(self):
+        if not isinstance(self.prefix, list):
+            raise ValueError("prefix must be a list of command tokens")
+        if len(self.prefix) == 0:
+            return
+        if not all(isinstance(token, str) and token for token in self.prefix):
+            raise ValueError("prefix tokens must be non-empty strings")
+
+        # Restrict prefix runner to known tools used by this test harness.
+        allowed_prefix_bins = {"valgrind"}
+        prefix_bin = os.path.basename(self.prefix[0])
+        if prefix_bin not in allowed_prefix_bins:
+            raise ValueError(
+                f"Unsupported command prefix: {self.prefix[0]} (allowed: {sorted(allowed_prefix_bins)})"
+            )
+
+    def _validate_args(self):
+        if not isinstance(self.args, list):
+            raise ValueError("args must be a list of command tokens")
+        unsafe_chars = set(";&|`$><\n\r\0")
+        for token in self.args:
+            if not isinstance(token, str) or token == "":
+                raise ValueError("args tokens must be non-empty strings")
+            if any(ch in unsafe_chars for ch in token):
+                raise ValueError(f"Unsafe command argument token: {token!r}")
+
     def start(self):
         self._validate_executable_path()
+        self._validate_prefix()
+        self._validate_args()
         if self.cli:
             self.process = subprocess.run(
                 self.prefix + [self.path] + self.args,
