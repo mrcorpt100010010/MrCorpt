@@ -18,6 +18,7 @@ import requests
 
 CYAN_COLOR = "\033[36m"
 GRAY_COLOR = "\033[2m"
+ALLOWED_ENGINE_NAMES = {"MrCorpt", "MrCorpt.exe", "mr_corpt", "mr_corpt.exe"}
 RED_COLOR = "\033[31m"
 GREEN_COLOR = "\033[32m"
 RESET_COLOR = "\033[0m"
@@ -312,7 +313,15 @@ class MrCorpt:
             print("\n".join(self.output))
             raise RuntimeError("MrCorpt process has terminated")
 
+    def _validate_executable_path(self):
+        base_name = os.path.basename(self.path)
+        if base_name not in ALLOWED_ENGINE_NAMES:
+            raise ValueError(
+                f"Executable name must be one of {sorted(ALLOWED_ENGINE_NAMES)}, got: {base_name}"
+            )
+
     def start(self):
+        self._validate_executable_path()
         if self.cli:
             self.process = subprocess.run(
                 self.prefix + [self.path] + self.args,
